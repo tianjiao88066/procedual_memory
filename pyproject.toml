@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-procedural-memory"
+version = "0.3.0"
+description = "Production-grade library for mining, consolidating, and evaluating agent procedural memory skills from OpenTelemetry-shaped traces, with optional LLM augmentation."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Procedural Memory Demo" }]
+license = { text = "MIT" }
+keywords = ["agents", "procedural-memory", "opentelemetry", "skills", "evaluation"]
+dependencies = []
+
+[project.optional-dependencies]
+public-data = ["datasets>=2.18.0"]
+llm = ["anthropic>=0.39.0"]
+embeddings = ["openai>=1.0.0"]
+all = ["datasets>=2.18.0", "anthropic>=0.39.0", "openai>=1.0.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+apm-demo = "agent_procedural_memory.demo:main"
